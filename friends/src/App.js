@@ -11,5 +11,3 @@ class App extends Component {
 };
 
 export default App;
-
-// need to fill in FriendView

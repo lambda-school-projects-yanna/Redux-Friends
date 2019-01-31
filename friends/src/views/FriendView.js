@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import  FriendsList from "../components/FriendsList";
-import { getAction } from '../actions'
+import FriendForm from '../components/FriendForm'
+import { getAction, postAction } from '../actions'
 
 class FriendView extends React.Component {
   constructor() {
@@ -9,19 +10,18 @@ class FriendView extends React.Component {
   };
 
   componentDidMount() {
-    // call our action
     getAction()
   };
-
+  
   render() {
     if (this.props.gettingFriends) {
-      // return something here to indicate that you are fetching data, like loading logo
       console.log('Hello from FriendView... getting your friends data');
     };
     
     return (
       <div className="FriendsList_wrapper">
         <FriendsList friends={this.props.friends} />
+        <FriendForm postAction={postAction} />
       </div>
     );
   };

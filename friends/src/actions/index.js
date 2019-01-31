@@ -14,4 +14,10 @@ export const getAction = () => dispatch => {
         .catch(err => dispatch({type: GET_FAILURE, payload: err}));
 };
 
-// need post action for mvp
+export const postAction = friend => dispatch => {
+    axios
+    .post('http://localhost:5000/api/friends', friend)
+    .then(res => dispatch({type: GET_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({type: GET_FAILURE, payload: err}));
+};
+
